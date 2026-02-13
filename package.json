@@ -1,0 +1,13 @@
+{
+  "name": "mail-channel",
+  "version": "2.0.0",
+  "description": "OpenClaw Mail Channel - 简化版管道架构",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:local": "USE_WEBHOOK=false node server.js"
+  },
+  "dependencies": {},
+  "keywords": ["openclaw", "mail", "agentmail"],
+  "license": "MIT"
+}

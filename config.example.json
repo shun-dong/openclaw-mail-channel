@@ -1,0 +1,6 @@
+{
+  "resend": {
+    "apiKey": "re_xxxxxxxx",
+    "fromEmail": "noreply@yourdomain.com"
+  }
+}
