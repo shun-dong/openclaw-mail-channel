@@ -1,6 +1,10 @@
 {
+  "agentMail": {
+    "apiKey": "am_your_agentmail_key",
+    "inboxId": "your-inbox@agentmail.to"
+  },
   "resend": {
-    "apiKey": "re_xxxxxxxx",
-    "fromEmail": "noreply@yourdomain.com"
+    "apiKey": "re_your_resend_key",
+    "fromEmail": "ai@yourdomain.com"
   }
 }
