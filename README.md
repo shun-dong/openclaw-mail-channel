@@ -72,15 +72,25 @@ Edit `~/.openclaw/openclaw.json`:
 
 **Each user must have a session created before emails will work.**
 
-Create sessions via CLI:
+Activate sessions via the `sessions_send` tool (call from an assistant session):
 
-```bash
-# Create session for alice
-openclaw agent --session-id "agent:main:alice" --message "Session initialized" --timeout 30
-
-# Create session for bob
-openclaw agent --session-id "agent:main:bob" --message "Session initialized" --timeout 30
+```json
+{
+  "tool": "sessions_send",
+  "args": {
+    "sessionKey": "agent:main:alice",
+    "message": "[SYSTEM] Session activated for alice. Do not reply to this message."
+  }
+}
 ```
+
+
+
+**Note**: 
+
+- The `[SYSTEM]` prefix indicates this is an initialization message
+- The target session should **not reply** to activation messages
+- `sessions_send` automatically creates the session if it doesn't exist
 
 Verify the session was created:
 
@@ -143,10 +153,16 @@ This ensures web UI and email share the same conversation history.
 
 ### "Session xxx does not exist"
 
-The session hasn't been created yet. Run:
+The session hasn't been created yet. Activate it via `sessions_send`:
 
-```bash
-openclaw agent --session-id "agent:main:USERNAME" --message "hi" --timeout 30
+```json
+{
+  "tool": "sessions_send",
+  "args": {
+    "sessionKey": "agent:main:USERNAME",
+    "message": "[SYSTEM] Session activated. Do not reply to this message."
+  }
+}
 ```
 
 ### Port 8789 already in use
